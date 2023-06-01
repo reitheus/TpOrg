@@ -19,7 +19,7 @@ Instruction* generateRandomInstructions(int ramSize) {
     Instruction* instructions = (Instruction*) malloc(10 * sizeof(Instruction));
 
     for (int i=0; i<9; i++){
-        instructions[i].opcode = rand() % 4; //0, 1, 2, 3
+        instructions[i].opcode = rand() % 5; //0, 1, 2, 3, 4
         instructions[i].info1 = rand() % ramSize; //0 ... RAM_SIZE
         do {
             instructions[i].info2 = rand() % ramSize; //0 ... RAM_SIZE
