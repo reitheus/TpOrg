@@ -63,49 +63,6 @@ void run(Machine* machine) {
                 printf("  > Subtraindo RAM[%d] (%f) com RAM[%d] (%f) e salvando na RAM[%d] (%f).\n", 
                                 address1, RAMContent1, address2, RAMContent2, address3, result);
                 break;
-            case 3: //multiplição
-                address1 = instruction.info1;
-                address2 = instruction.info2;
-                RAMContent1 = machine->RAM.items[address1];
-                RAMContent2 = machine->RAM.items[address2];
-                for(int i=1;i<=RAMContent2;i++){
-                    
-                    result = result + RAMContent1;
-                }
-                address3 = instruction.info3;
-                machine->RAM.items[address3] = result;
-                result=0.0;
-                printf("  > Multiplicando RAM[%d] (%f) com RAM[%d] (%f) e salvando na RAM[%d] (%f).\n", 
-                                address1, RAMContent1, address2, RAMContent2, address3, result);
-                break;
-            case 4: //divisão
-                address1 = instruction.info1;
-                address2 = instruction.info2;
-                RAMContent1 = machine->RAM.items[address1];
-                RAMContent2 = machine->RAM.items[address2];
-                float i = 0.0;
-                result = RAMContent1;
-                while (result>=RAMContent2)
-                {
-            
-                    result = result - RAMContent2; 
-                    i = i + 1.0;
-                }
-                result = i;
-                address3 = instruction.info3;
-                machine->RAM.items[address3] = result;
-                result=0.0;
-                printf("  > Dividindo RAM[%d] (%f) com RAM[%d] (%f) e salvando na RAM[%d] (%f).\n", 
-                                address1, RAMContent1, address2, RAMContent2, address3, result);
-                break;
-            case 5: //potencia
-                
-                
-                
-                
-                
-                
-                break;
         }
         PC++;
     }
