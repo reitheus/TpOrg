@@ -1,4 +1,4 @@
-#include "generator.h"
+
 #include "cpu.h"
 #include <stdio.h>
 #include <stdlib.h>
@@ -38,6 +38,20 @@ Instruction* generateRandomInstructions(int ramSize) {
 }
 
 Instruction* generateMultiplicationInstructions(int num1, int num2){
+                address1 = instruction.info1;
+                address2 = instruction.info2;
+                RAMContent1 = machine->RAM.items[address1];
+                RAMContent2 = machine->RAM.items[address2];
+                for(int i=1;i<=RAMContent2;i++){
+                    
+                    result = result + RAMContent1;
+                }
+                address3 = instruction.info3;
+                machine->RAM.items[address3] = result;
+                result=0.0;
+                printf("  > Multiplicando RAM[%d] (%f) com RAM[%d] (%f) e salvando na RAM[%d] (%f).\n", 
+                                address1, RAMContent1, address2, RAMContent2, address3, result);
+
 
 
 
