@@ -9,7 +9,7 @@ int main(int argc, char**argv) {
 
     srand(time(NULL));   // Inicializacao da semente para os numeros aleatorios.
 
-    if (argc != 3) {
+    if (argc != 5) {
         printf("Numero de argumentos invalidos! Sao 3.\n");
         printf("Linha de execucao: ./exe TIPO_INSTRUCAO [TAMANHO_RAM|ARQUIVO_DE_INSTRUCOES]\n");
         printf("\tExemplo 1 de execucao: ./exe random 10\n");
@@ -17,7 +17,7 @@ int main(int argc, char**argv) {
         return 0;
     }
 
-    int ramSize;
+    int ramSize,num1,num2;
     Machine machine;
     Instruction *instructions;
 
@@ -27,7 +27,12 @@ int main(int argc, char**argv) {
     } else if (strcmp(argv[1], "file") == 0) {
         instructions = readInstructions(argv[2], &ramSize);
     } 
-    else {
+    else if(strcmp(argv[1], "multi")==0){
+        ramSize = atoi(argv[2]);
+        num1 = atoi(argv[3]);
+        num2 = atoi(argv[4]);
+        instructions = generateMultiplicationInstructions(num1,num2);
+    }else{
         printf("Opcao invalida.\n");
         return 0;
     }

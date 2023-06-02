@@ -1,5 +1,4 @@
-
-#include "cpu.h"
+#include "generator.h"
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -20,7 +19,7 @@ Instruction* generateRandomInstructions(int ramSize) {
     Instruction* instructions = (Instruction*) malloc(10 * sizeof(Instruction));
 
     for (int i=0; i<9; i++){
-        instructions[i].opcode = rand() % 5; //0, 1, 2, 3, 4
+        instructions[i].opcode = rand() % 4; //0, 1, 2, 3, 4
         instructions[i].info1 = rand() % ramSize; //0 ... RAM_SIZE
         do {
             instructions[i].info2 = rand() % ramSize; //0 ... RAM_SIZE
@@ -38,24 +37,38 @@ Instruction* generateRandomInstructions(int ramSize) {
 }
 
 Instruction* generateMultiplicationInstructions(int num1, int num2){
-    
-                address1 = num1;
-                address2 = num2;
-                RAMContent1 = machine->RAM.items[address1];
-                RAMContent2 = machine->RAM.items[address2];
-                for(int i=1;i<=RAMContent2;i++){
-                    
-                    result = result + RAMContent1;
-                }
-                address3 = instruction.info3;
-                machine->RAM.items[address3] = result;
-                result=0.0;
-                printf("  > Multiplicando RAM[%d] (%f) com RAM[%d] (%f) e salvando na RAM[%d] (%f).\n", 
-                                address1, RAMContent1, address2, RAMContent2, address3, result);
+
+    Instruction *instructions = (Instruction*) malloc((num1+4) * sizeof(Instruction));
+
+    instructions[0].opcode = 0;
+    instructions[0].info1 = num1;
+    instructions[0].info2 = 0;
+    instructions[0].info3 = 0;
+
+    instructions[1].opcode = 0;
+    instructions[1].info1 = num2;
+    instructions[1].info2 = 1;
+    instructions[1].info3 = 0;
+
+    instructions[2].opcode = 0;
+    instructions[2].info1 = 0;
+    instructions[2].info2 = 2;
+    instructions[2].info3 = 0;
+
+    for (int i = 3; i < num1+3; i++){
+        instructions[i].opcode = 1;
+        instructions[i].info1 = 2;
+        instructions[i].info2 = 1;
+        instructions[i].info3 = 2;
+    }
 
 
+    instructions[num1+3].opcode =-1;
+    instructions[num1+3].info1 = -1;
+    instructions[num1+3].info2 = -1;
+    instructions[num1+3].info3 = -1;
 
-
+    return instructions;
 }
 
 
