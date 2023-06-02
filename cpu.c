@@ -100,6 +100,11 @@ void run(Machine* machine) {
                 break;
             case 5: //potencia
                 
+                
+                
+                
+                
+                
                 break;
         }
         PC++;
