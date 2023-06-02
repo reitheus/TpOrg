@@ -1,4 +1,5 @@
 #include "generator.h"
+#include "cpu.h"
 #include <stdio.h>
 #include <stdlib.h>
 
