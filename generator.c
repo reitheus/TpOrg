@@ -38,8 +38,9 @@ Instruction* generateRandomInstructions(int ramSize) {
 }
 
 Instruction* generateMultiplicationInstructions(int num1, int num2){
-                address1 = instruction.info1;
-                address2 = instruction.info2;
+    
+                address1 = num1;
+                address2 = num2;
                 RAMContent1 = machine->RAM.items[address1];
                 RAMContent2 = machine->RAM.items[address2];
                 for(int i=1;i<=RAMContent2;i++){
