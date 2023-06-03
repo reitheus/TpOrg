@@ -129,7 +129,7 @@ Instruction* generatePowerInstructions(int num1, int num2){
     //loop para fazer a potencia, multiplicação sucessiva
     for(int i = 0; i < num2 ;i++){
     
-        instructions = generateMultiplicationInstructions(int num1, int num2);
+        instructions = generateMultiplicationInstructions(num1, num2);
         //num1 = instructions[].info3;
         
     }
