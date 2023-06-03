@@ -1,4 +1,5 @@
 #include "generator.h"
+#include "cpu.h"
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -72,8 +73,10 @@ Instruction* generateMultiplicationInstructions(int num1, int num2){
 }
 
 Instruction* generateDivisionInstructions(int num1, int num2) {
-    Instruction* instructions = (Instruction*) malloc((num1 + 7) * sizeof(Instruction));
-
+    Instruction* instructions = (Instruction*) malloc((num1 + 5) * sizeof(Instruction));
+    
+    int c=0;
+    int vaule;
     instructions[0].opcode = 0;   // Salvar num1
     instructions[0].info1 = num1;
     instructions[0].info2 = 0;
@@ -84,39 +87,33 @@ Instruction* generateDivisionInstructions(int num1, int num2) {
     instructions[1].info2 = 1;
     instructions[1].info3 = 0;
 
-    instructions[2].opcode = 0;   // Inicializar quociente (resultado) com 0
-    instructions[2].info1 = 0;
-    instructions[2].info2 = 2;
-    instructions[2].info3 = 0;
-
-    instructions[3].opcode = 0;   // Inicializar contador de subtrações com 0
-    instructions[3].info1 = 0;
-    instructions[3].info2 = 3;
-    instructions[3].info3 = 0;
-
-    instructions[4].opcode = 0;   
-    instructions[4].info1 = 1;
-    instructions[4].info2 = 4;
-    instructions[4].info3 = 0;
-
     
-    for (int i = 5; i < num1+6; i++) {
+    int i=3;
+    while (i<num1+3) {
+        
         instructions[i].opcode = 2;   
         instructions[i].info1 = 0;
         instructions[i].info2 = 1;
         instructions[i].info3 = 0;
-        while(instructions[i].info1 >= num2){
-            instructions[i].opcode = 1;   
-            instructions[i].info1 = 2;
-            instructions[i].info2 = 4;
-            instructions[i].info3 = 2;
-        }
-    }
 
-    instructions[num1 + 6].opcode = -1;   // Encerrar programa
-    instructions[num1 + 6].info1 = -1;
-    instructions[num1 + 6].info2 = -1;
-    instructions[num1 + 6].info3 = -1;
+        vaule;
+        printf("%d",vaule);
+        if(vaule > 0){
+            c=c+1;
+        }
+        
+
+        i += 1;
+    }
+    instructions[i].opcode = 0;   
+    instructions[i].info1 = c;
+    instructions[i].info2 = 2;
+    instructions[i].info3 = 0;
+
+    instructions[i + 1].opcode = -1;   // Encerrar programa
+    instructions[i + 1].info1 = -1;
+    instructions[i + 1].info2 = -1;
+    instructions[i + 1].info3 = -1;
 
     return instructions;
 }
