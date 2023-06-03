@@ -136,7 +136,7 @@ Instruction* generatePowerInstructions(int num1, int num2){
     instructions[1].info2 = 1;
     instructions[1].info3 = 0;
     
-    for(int i = 2){
+    for(int i = 2; num + 3 ;i++){
     
         generateMultiplicationInstructions(int num1, int num2);
     
