@@ -123,7 +123,9 @@ Instruction* generateDivisionInstructions(int num1, int num2) {
 
 //num1 = base, num2 = expoente
 Instruction* generatePowerInstructions(int num1, int num2){
-
+    
+    Instruction *instructions = (Instruction*) malloc((num1+4) * sizeof(Instruction));
+    
     instructions[0].opcode = 0;
     instructions[0].info1 = num1;
     instructions[0].info2 = 0;
@@ -133,8 +135,11 @@ Instruction* generatePowerInstructions(int num1, int num2){
     instructions[1].info1 = num2;
     instructions[1].info2 = 1;
     instructions[1].info3 = 0;
-
-
+    
+    
+    
+    generateMultiplicationInstructions(int num1, int num2);
+    
 
 }
 
