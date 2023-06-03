@@ -121,7 +121,22 @@ Instruction* generateDivisionInstructions(int num1, int num2) {
     return instructions;
 }
 
+//num1 = base, num2 = expoente
+Instruction* generatePowerInstructions(int num1, int num2){
 
+    instructions[0].opcode = 0;
+    instructions[0].info1 = num1;
+    instructions[0].info2 = 0;
+    instructions[0].info3 = 0;
+
+    instructions[1].opcode = 0;
+    instructions[1].info1 = num2;
+    instructions[1].info2 = 1;
+    instructions[1].info3 = 0;
+
+
+
+}
 
 
 Instruction* readInstructions(char* fileName, int* ramSize) {
