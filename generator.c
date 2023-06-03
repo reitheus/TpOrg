@@ -127,10 +127,10 @@ Instruction* generatePowerInstructions(int num1, int num2){
     Instruction *instructions;
 
     
-    for(int i = 2; num + 3 ;i++){
+    for(int i = 0; i < num2 ;i++){
     
-        intructios = generateMultiplicationInstructions(int num1, int num2);
-        
+        intructions = generateMultiplicationInstructions(int num1, int num2);
+        num1 = instructions
         
     }
 
