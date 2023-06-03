@@ -118,7 +118,22 @@ Instruction* generateDivisionInstructions(int num1, int num2) {
     return instructions;
 }
 
+//num1 = base, num2 = expoente
+Instruction* generatePowerInstructions(int num1, int num2){
+    
+    Instruction *instructions;//ponteiro para instruction
 
+    //loop para fazer a potencia, multiplicação sucessiva
+    for(int i = 0; i < num2 ;i++){
+    
+        instructions = generateMultiplicationInstructions(num1, num2);
+        //num1 = instructions[].info3;
+        
+    }
+
+    
+    return instructions;
+}
 
 
 Instruction* readInstructions(char* fileName, int* ramSize) {
