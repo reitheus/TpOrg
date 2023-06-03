@@ -100,7 +100,7 @@ Instruction* generateDivisionInstructions(int num1, int num2) {
     instructions[4].info3 = 0;
 
     
-    for (int i = 5; i < num1; i++) {
+    for (int i = 5; i < num1+6; i++) {
         instructions[i].opcode = 2;   
         instructions[i].info1 = 0;
         instructions[i].info2 = 1;
