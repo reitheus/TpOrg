@@ -134,44 +134,50 @@ Instruction* generateDivisionInstructions(int num1, int num2) {
 
 //num1 = base, num2 = expoente
 Instruction* generatePowerInstructions(int num1, int num2){
-    
-    Instruction *instructions = (Instruction*) malloc(  ( ((num1) * num2)+ (num2 - 1) + 6) * sizeof(Instruction));
+  //quantidade de soma + instruções no loop + instruções basicas
+  int tamInst =  (num1 * num2) + (num2 * 2) + 6;
 
-    instructions[0].opcode = 0;
-    instructions[0].info1 = num1;//mandar o valor de num1 para ir para memoria
-    instructions[0].info2 = 0;//aponta para qual endereço da memoria vai ficar o valor
-    instructions[0].info3 = 0;
+  Instruction *instructions = (Instruction*) malloc(  tamInst * sizeof(Instruction));
 
-    instructions[1].opcode = 0;
-    instructions[1].info1 = num2;//manda o valor de num2 para memoria
-    instructions[1].info2 = 1;//aponta para endereço da memoria o valor de num2 vai ficar
-    instructions[1].info3 = 0;
+  instructions[0].opcode = 0;
+  instructions[0].info1 = num1;//mandar o valor de num1 para ir para memoria
+  instructions[0].info2 = 0;//aponta para qual endereço da memoria vai ficar o valor
+  instructions[0].info3 = 0;
 
-    instructions[2].opcode = 0;
-    instructions[2].info1 = 0;//adiciona 0 na memoria
-    instructions[2].info2 = 2;//adiciona 0 na posição 2 da memoria, que será utilizada para armazenar o resultado depois
-    instructions[2].info3 = 0;
-    
-    //loop para fazer a potencia, multiplicação sucessiva
-    instructions[3].opcode = 3;//função que copia valor dentro da ram de uma variavel para outra
-    instructions[3].info1 = 0;//copia o valor do endereço 0
-    instructions[3].info2 = 1;//para o endereço 1
-    instructions[3].info3 = 0;
-    for(int i = 4; i < ( (num1 * num2)+ (num2 - 1) + 4) ;i += num1){
-    
-         multiplica(num1, instructions, i);
-         instructions[num1+i].opcode = 3;//função que copia valor dentro da ram de uma variavel para outra
-         instructions[num1+i].info1 = 2;//copia o valor do endereço 2
-         instructions[num1+i].info2 = 1;//para o endereço 1
-         instructions[num1+i].info3 = 0;
-         
+  instructions[1].opcode = 0;
+  instructions[1].info1 = num2;//manda o valor de num2 para memoria
+  instructions[1].info2 = 1;//aponta para endereço da memoria o valor de num2 vai ficar
+  instructions[1].info3 = 0;
+
+  instructions[2].opcode = 0;
+  instructions[2].info1 = 0;//adiciona 0 na memoria
+  instructions[2].info2 = 2;//adiciona 0 na posição 2 da memoria, que será utilizada para armazenar o resultado depois
+  instructions[2].info3 = 0;
+
+  //loop para fazer a potencia, multiplicação sucessiva
+  instructions[3].opcode = 3;//função que copia valor dentro da ram de uma variavel para outra
+  instructions[3].info1 = 0;//copia o valor do endereço 0
+  instructions[3].info2 = 1;//para o endereço 1
+  instructions[3].info3 = 0;
+  for(int i = 4; i <  tamInst - 1 ;i += num1 + 2){
+
+       multiplica(num1, instructions, i);
+       instructions[num1+i].opcode = 3;//função que copia valor dentro da ram de uma variavel para outra
+       instructions[num1+i].info1 = 2;//copia o valor do endereço 2
+       instructions[num1+i].info2 = 1;//para o endereço 1
+       instructions[num1+i].info3 = 0;
+
+       instructions[num1+i + 1].opcode = 2;
+       instructions[num1+i + 1].info1 = 0;
+       instructions[num1+i + 1].info2 = 2;
+       instructions[num1+i + 1].info3 = 0;
 
     }
 
-    instructions[( (num1 * num2)+ (num2 - 1) + 5)].opcode = -1;
-    instructions[( (num1 * num2)+ (num2 - 1) + 5)].info1 = -1;
-    instructions[( (num1 * num2)+ (num2 - 1) + 5)].info2 = -1;
-    instructions[( (num1 * num2)+ (num2 - 1) + 5)].info3 = -1;
+    instructions[tamInst - 1].opcode = -1;
+    instructions[tamInst - 1].info1 = -1;
+    instructions[tamInst - 1].info2 = -1;
+    instructions[tamInst - 1].info3 = -1;
   
     return instructions;
 }
