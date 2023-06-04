@@ -65,12 +65,13 @@ void run(Machine* machine) {
                 break;
               case 3: // sobrescrevendo da numero da memoria ram de um endereço para outro
                 address1 = instruction.info1;
-                instruction.info2 = machine->RAM.items[address1];
+                RAMContent1 = machine->RAM.items[address1]
+                instruction.info2 =  RAMContent1;
 
                 //machine->RAM.items[address1] = RAMContent1;
                 
-                printf("  > Sobrescreve de RAM[%d] (%f) para RAM[%d] .\n", 
-                                address1, RAMContent1, address2);
+                printf("  > Sobrescreve de RAM[%d] (%f) para variavel .\n", 
+                                address1, RAMContent1;
                 break;
         }
         PC++;
