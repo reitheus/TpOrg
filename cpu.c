@@ -72,7 +72,7 @@ void run(Machine* machine) {
 
                
                 
-                printf("  > Sobrescreve de RAM[%d] (%f) para RAM[%i] %i.\n", 
+                printf("  > Sobrescreve de RAM[%d] (%f) para RAM[%i] .\n", 
                                 address1, RAMContent1, address2);
                 break;
         }
