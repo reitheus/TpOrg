@@ -93,7 +93,7 @@ Instruction* generateMultiplicationInstructions(int num1, int num2){
 }
 
 Instruction* generateDivisionInstructions(int num1, int num2) {
-    Instruction* instructions = (Instruction*) malloc((((num1-1)* num2)+(num2-1)+5)* sizeof(Instruction));
+    Instruction* instructions = (Instruction*) malloc((num1+5)* sizeof(Instruction));
     
     int c=1;
     instructions[0].opcode = 0;   // Salvar num1
