@@ -167,7 +167,7 @@ Instruction* generatePowerInstructions(int num1, int num2){
        instructions[num1+i].info2 = 1;//para o endereço 1
        instructions[num1+i].info3 = 0;
 
-       instructions[num1+i + 1].opcode = 2;
+       instructions[num1+i + 1].opcode = 0;
        instructions[num1+i + 1].info1 = 0;
        instructions[num1+i + 1].info2 = 2;
        instructions[num1+i + 1].info3 = 0;
