@@ -37,7 +37,7 @@ Instruction* generateRandomInstructions(int ramSize) {
     return instructions;
 }
 
-Instruction* multiplica(int num1){
+Instruction* multiplica(int num1, Instruction *instruction){
 
     for (int i = 3; i < num1+3; i++){
         instructions[i].opcode = 1;//opcode de soma
@@ -70,7 +70,7 @@ Instruction* generateMultiplicationInstructions(int num1, int num2){
     instructions[2].info2 = 2;//adiciona 0 na posição 2 da memoria, que será utilizada para armazenar o resultado depois
     instructions[2].info3 = 0;
 
-    multiplica(num1);
+    multiplica(num1, instructions);
   
     instructions[num1+4].opcode = -1;
     instructions[num1+4].info1 = -1;
@@ -151,7 +151,7 @@ Instruction* generatePowerInstructions(int num1, int num2){
     //loop para fazer a potencia, multiplicação sucessiva
     for(int i = 0; i < num2 ;i++){
     
-         multiplica(num1);
+         multiplica(num1, instructions);
          instructions[num1+3].opcode = 3;//função que copia valor dentro da ram de uma variavel para outra
          instructions[num1+3].info1 = 2;//copia o valor do endereço 2
          instructions[num1+3].info2 = 0;//para o endereço 1
