@@ -2,7 +2,7 @@
 #include "cpu.h"
 #include <stdio.h>
 #include <stdlib.h>
- 
+  
 Instruction* generateRandomInstructions(int ramSize) {
     // 01|22|13|45 => isto é uma instrução
     // 02|33|12|01 => isto é outra instrução
