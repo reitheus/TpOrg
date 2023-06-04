@@ -151,7 +151,7 @@ Instruction* generatePowerInstructions(int num1, int num2){
     
     //loop para fazer a potencia, multiplicação sucessiva
     
-    for(int i = 3; i < ( ((num1-1) * num2)+ (num2 - 1) + 4) ;i += num1){
+    for(int i = 3; i < ( ((num1-1) * num2)+ (num2 - 1) + 3) ;i += num1){
     
          multiplica(num1, instructions, i);
          instructions[num1+i].opcode = 3;//função que copia valor dentro da ram de uma variavel para outra
