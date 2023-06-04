@@ -164,21 +164,21 @@ Instruction* generatePowerInstructions(int num1, int num2){
     instructions[3].info1 = 0;//copia o valor do endereço 0
     instructions[3].info2 = 1;//para o endereço 1
     instructions[3].info3 = 0;
-    for(int i = 4; i < ( ((num1) * num2)+ (num2 - 1) + 4) ;i += num1){
+    for(int i = 4; i < ( (num1 * num2)+ (num2 - 1) + 4) ;i += num1){
     
          multiplica(num1, instructions, i);
-         instructions[num1+i + 1].opcode = 3;//função que copia valor dentro da ram de uma variavel para outra
-         instructions[num1+i + 1].info1 = 2;//copia o valor do endereço 2
-         instructions[num1+i + 1].info2 = 1;//para o endereço 1
-         instructions[num1+i + 1].info3 = 0;
+         instructions[num1+i].opcode = 3;//função que copia valor dentro da ram de uma variavel para outra
+         instructions[num1+i].info1 = 2;//copia o valor do endereço 2
+         instructions[num1+i].info2 = 1;//para o endereço 1
+         instructions[num1+i].info3 = 0;
          
 
     }
 
-    instructions[( ((num1) * num2)+ (num2 - 1) + 5)].opcode = -1;
-    instructions[( ((num1) * num2)+ (num2 - 1) + 5)].info1 = -1;
-    instructions[( ((num1) * num2)+ (num2 - 1) + 5)].info2 = -1;
-    instructions[( ((num1) * num2)+ (num2 - 1) + 5)].info3 = -1;
+    instructions[( (num1 * num2)+ (num2 - 1) + 5)].opcode = -1;
+    instructions[( (num1 * num2)+ (num2 - 1) + 5)].info1 = -1;
+    instructions[( (num1 * num2)+ (num2 - 1) + 5)].info2 = -1;
+    instructions[( (num1 * num2)+ (num2 - 1) + 5)].info3 = -1;
   
     return instructions;
 }
