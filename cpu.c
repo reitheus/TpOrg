@@ -68,10 +68,6 @@ void run(Machine* machine) {
                 address2 = instruction.info2;//endereço do local que vai ser colado
                 RAMContent1 = machine->RAM.items[address1];
                 machine->RAM.items[address2] = RAMContent1;
-                
-
-               
-                
                 printf("  > Sobrescreve de RAM[%d] (%f) para RAM[%i] .\n", 
                                 address1, RAMContent1, address2);
                 break;
