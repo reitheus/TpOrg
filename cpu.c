@@ -68,7 +68,7 @@ void run(Machine* machine) {
                 address2 = instruction.info2;
                 RAMContent1 = machine->RAM.items[address2];
 
-                machine->RAM.items[address1] = RAMConten1;
+                machine->RAM.items[address1] = RAMContent1;
                 
                 printf("  > Sobrescreve de RAM[%d] (%f) para RAM[%d] .\n", 
                                 address1, RAMContent1, address2);
