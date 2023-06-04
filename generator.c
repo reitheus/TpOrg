@@ -136,7 +136,7 @@ Instruction* generateDivisionInstructions(int num1, int num2) {
 Instruction* generatePowerInstructions(int num1, int num2){
   //quantidade de soma + instruções no loop + instruções basicas
   int tamInst =  (num1 * (num2 - 1)) + (num2 * 2) + 5;
-
+  int aux;
   Instruction *instructions = (Instruction*) malloc(  tamInst * sizeof(Instruction));
 
   instructions[0].opcode = 0;
@@ -160,7 +160,14 @@ Instruction* generatePowerInstructions(int num1, int num2){
   instructions[3].info2 = 1;//para o endereço 1
   instructions[3].info3 = 0;
   
-  for(int i = 4; i <  (num1 + 2) * (num2) ;i += num1 + 2){
+  if(num1 == 2){
+    aux = num2
+  }else{
+    aux = num2 - 1
+  
+  }
+  
+  for(int i = 4; i <  (num1 + 2) * aux ;i += num1 + 2){
 
        multiplica(num1, instructions, i);//percorre num1 instructions
        instructions[num1+i].opcode = 3;//função que copia valor dentro da ram de uma variavel para outra
