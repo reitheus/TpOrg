@@ -40,7 +40,7 @@ int main(int argc, char**argv) {
         ramSize = atoi(argv[2]);
         num1 = atoi(argv[3]);
         num2 = atoi(argv[4]);
-        instructions = generatePowInstructions(num1,num2);
+        instructions = generatePowerInstructions(num1,num2);
     }else{
         printf("Opcao invalida.\n");
         return 0;
