@@ -68,10 +68,7 @@ Instruction* generateMultiplicationInstructions(int num1, int num2){
    
     
     
-    instructions[num1+4].opcode = -1;
-    instructions[num1+4].info1 = -1;
-    instructions[num1+4].info2 = -1;
-    instructions[num1+4].info3 = -1;
+
 
     return instructions;
 }
@@ -132,11 +129,17 @@ Instruction* generatePowerInstructions(int num1, int num2){
     for(int i = 0; i < num2 ;i++){
     
         instructions = generateMultiplicationInstructions(num1, num1);
+     
         instructions[aux + 3].opcode = 3;
         instructions[aux + 3].info1 = 2;
         num1 = instructions[aux + 3].info2;
         printf("num1 = %i", num1);
         instructions[aux + 3].info3 = 0;
+     
+        instructions[num1+4].opcode = -1;
+        instructions[num1+4].info1 = -1;
+        instructions[num1+4].info2 = -1;
+        instructions[num1+4].info3 = -1;
         
     }
 
