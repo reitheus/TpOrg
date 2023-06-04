@@ -72,10 +72,10 @@ Instruction* generateMultiplicationInstructions(int num1, int num2){
 
     multiplica(num1, instructions, 3);
   
-    instructions[num1+4].opcode = -1;
-    instructions[num1+4].info1 = -1;
-    instructions[num1+4].info2 = -1;
-    instructions[num1+4].info3 = -1;
+    instructions[num1+3].opcode = -1;
+    instructions[num1+3].info1 = -1;
+    instructions[num1+3].info2 = -1;
+    instructions[num1+3].info3 = -1;
     
 
 
