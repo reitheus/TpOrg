@@ -156,7 +156,7 @@ Instruction* generatePowerInstructions(int num1, int num2){
          multiplica(num1, instructions, i);
          instructions[num1+i].opcode = 3;//função que copia valor dentro da ram de uma variavel para outra
          instructions[num1+i].info1 = 2;//copia o valor do endereço 3
-         instructions[num1+i].info2 = 0;//para o endereço 2
+         instructions[num1+i].info2 = 1;//para o endereço 2
          instructions[num1+i].info3 = 0;
          
 
