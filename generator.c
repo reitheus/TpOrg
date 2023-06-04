@@ -42,18 +42,18 @@ Instruction* generateMultiplicationInstructions(int num1, int num2){
     Instruction *instructions = (Instruction*) malloc((num1+4) * sizeof(Instruction));
 
     instructions[0].opcode = 0;
-    instructions[0].info1 = num1;
-    instructions[0].info2 = 0;
+    instructions[0].info1 = num1;//mandar o valor de num1 para ir para memoria
+    instructions[0].info2 = 0;//aponta para qual endereço da memoria vai ficar o valor
     instructions[0].info3 = 0;
 
     instructions[1].opcode = 0;
-    instructions[1].info1 = num2;
-    instructions[1].info2 = 1;
+    instructions[1].info1 = num2;//manda o valor de num2 para memoria
+    instructions[1].info2 = 1;//aponta para endereço da memoria o valor de num2 vai ficar
     instructions[1].info3 = 0;
 
     instructions[2].opcode = 0;
-    instructions[2].info1 = 0;
-    instructions[2].info2 = 2;
+    instructions[2].info1 = 0;//adiciona 0 na memoria
+    instructions[2].info2 = 2;//adiciona 0 na posição 2 da memoria, que será utilizada para armazenar o resultado depois
     instructions[2].info3 = 0;
 
     for (int i = 3; i < num1+3; i++){
@@ -130,7 +130,7 @@ Instruction* generatePowerInstructions(int num1, int num2){
     for(int i = 0; i < num2 ;i++){
     
         instructions = generateMultiplicationInstructions(num1, num2);
-        num1 = instructions[0].info1;
+        num1 = instructions[2].info1;
         
     }
 
