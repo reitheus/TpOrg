@@ -135,7 +135,7 @@ Instruction* generateDivisionInstructions(int num1, int num2) {
 //num1 = base, num2 = expoente
 Instruction* generatePowerInstructions(int num1, int num2){
   //quantidade de soma + instruções no loop + instruções basicas
-  int tamInst =  (num1 * num2) + (num2 * 2) + 40;
+  int tamInst =  (num1 * num2) + (num2 * 2) + 6;
 
   Instruction *instructions = (Instruction*) malloc(  tamInst * sizeof(Instruction));
 
