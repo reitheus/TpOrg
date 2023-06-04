@@ -131,7 +131,10 @@ Instruction* generatePowerInstructions(int num1, int num2){
     for(int i = 0; i < num2 ;i++){
     
         instructions = generateMultiplicationInstructions(num1, num2);
-        num1 = instructions[aux + 2].info1;
+        instructions[0].opcode = 3;
+        instructions[0].info1 = 0;
+        instructions[0].info2 = 2;
+        instructions[0].info3 = 0;
         
     }
 
