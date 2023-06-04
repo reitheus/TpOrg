@@ -123,7 +123,7 @@ Instruction* generateDivisionInstructions(int num1, int num2) {
 }
 
 //num1 = base, num2 = expoente
-Instruction* generatePowerInstructions(int num1, int num1){
+Instruction* generatePowerInstructions(int num1, int num2){
     
     Instruction *instructions;//ponteiro para instruction
     int aux = num1;
@@ -131,7 +131,7 @@ Instruction* generatePowerInstructions(int num1, int num1){
     //loop para fazer a potencia, multiplicação sucessiva
     for(int i = 0; i < num2 ;i++){
     
-        instructions = generateMultiplicationInstructions(num1, num2);
+        instructions = generateMultiplicationInstructions(num1, num1);
         instructions[aux + 3].opcode = 3;
         instructions[aux + 3].info1 = 2;
         num1 = instructions[aux + 3].info2;
