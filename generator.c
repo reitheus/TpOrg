@@ -42,7 +42,7 @@ Instruction* multiplica(int num1, Instruction *instructions,int cont){
     for (int i = cont; i < num1+cont; i++){
         instructions[i].opcode = 1;//opcode de soma
         instructions[i].info1 = 2;
-        instructions[i].info2 = 0;
+        instructions[i].info2 = 1;
         instructions[i].info3 = 2;
         
         
@@ -142,7 +142,7 @@ Instruction* generateDivisionInstructions(int num1, int num2) {
 //num1 = base, num2 = expoente
 Instruction* generatePowerInstructions(int num1, int num2){
     
-    Instruction *instructions = (Instruction*) malloc(  ( ((num1-1) * num2)+ (num2 - 1) + 5) * sizeof(Instruction));
+    Instruction *instructions = (Instruction*) malloc(  ( ((num1-1) * num2)+ (num2 - 1) + 6) * sizeof(Instruction));
 
     instructions[0].opcode = 0;
     instructions[0].info1 = num1;//mandar o valor de num1 para ir para memoria
@@ -160,22 +160,25 @@ Instruction* generatePowerInstructions(int num1, int num2){
     instructions[2].info3 = 0;
     
     //loop para fazer a potencia, multiplicação sucessiva
-    
+    instructions[num1+i].opcode = 3;//função que copia valor dentro da ram de uma variavel para outra
+    instructions[num1+i].info1 = 0;//copia o valor do endereço 0
+    instructions[num1+i].info2 = 1;//para o endereço 1
+    instructions[num1+i].info3 = 0;
     for(int i = 3; i < ( ((num1-1) * num2)+ (num2 - 1) + 3) ;i += num1){
     
          multiplica(num1, instructions, i);
-         //instructions[num1+i].opcode = 3;//função que copia valor dentro da ram de uma variavel para outra
-         //instructions[num1+i].info1 = 2;//copia o valor do endereço 3
-        // instructions[num1+i].info2 = 1;//para o endereço 2
-        // instructions[num1+i].info3 = 0;
+         instructions[num1+i].opcode = 3;//função que copia valor dentro da ram de uma variavel para outra
+         instructions[num1+i].info1 = 2;//copia o valor do endereço 2
+         instructions[num1+i].info2 = 1;//para o endereço 1
+         instructions[num1+i].info3 = 0;
          
 
     }
 
-    instructions[( ((num1-1) * num2)+ (num2 - 1) + 4)].opcode = -1;
-    instructions[( ((num1-1) * num2)+ (num2 - 1) + 4)].info1 = -1;
-    instructions[( ((num1-1) * num2)+ (num2 - 1) + 4)].info2 = -1;
-    instructions[( ((num1-1) * num2)+ (num2 - 1) + 4)].info3 = -1;
+    instructions[( ((num1-1) * num2)+ (num2 - 1) + 5)].opcode = -1;
+    instructions[( ((num1-1) * num2)+ (num2 - 1) + 5)].info1 = -1;
+    instructions[( ((num1-1) * num2)+ (num2 - 1) + 5)].info2 = -1;
+    instructions[( ((num1-1) * num2)+ (num2 - 1) + 5)].info3 = -1;
   
     return instructions;
 }
