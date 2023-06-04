@@ -36,6 +36,11 @@ int main(int argc, char**argv) {
         num1 = atoi(argv[3]);
         num2 = atoi(argv[4]);
         instructions = generateDivisionInstructions(num1,num2);
+    }else if(strcmp(argv[1], "pow")==0){
+        ramSize = atoi(argv[2]);
+        num1 = atoi(argv[3]);
+        num2 = atoi(argv[4]);
+        instructions = generatePowInstructions(num1,num2);
     }else{
         printf("Opcao invalida.\n");
         return 0;
