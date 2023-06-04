@@ -139,6 +139,7 @@ Instruction* generatePowerInstructions(int num1, int num2){
 }
 
 
+
 Instruction* readInstructions(char* fileName, int* ramSize) {
     printf("FILE -> %s\n", fileName);
     FILE* file = fopen(fileName, "r"); // Abrindo arquivo no modo leitura
