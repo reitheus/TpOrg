@@ -161,9 +161,9 @@ Instruction* generatePowerInstructions(int num1, int num2){
   instructions[3].info3 = 0;
   
   if(num1 == 2){
-    aux = num2
+    aux = num2;
   }else{
-    aux = num2 - 1
+    aux = num2 - 1;
   
   }
   
