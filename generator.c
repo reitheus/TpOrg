@@ -42,11 +42,21 @@ Instruction* multiplica(int num1, Instruction *instructions,int cont){
     for (int i = cont; i < num1+cont; i++){
         instructions[i].opcode = 1;//opcode de soma
         instructions[i].info1 = 2;
-        instructions[i].info2 = 1;
+        instructions[i].info2 = 0;
         instructions[i].info3 = 2;
         
         
     }
+  
+    /*multiplicação que funciona
+     for (int i = cont; i < num1+cont; i++){
+        instructions[i].opcode = 1;//opcode de soma
+        instructions[i].info1 = 2;
+        instructions[i].info2 = 1;
+        instructions[i].info3 = 2;
+        
+        
+    }*/
 
   return 0;
 }
@@ -154,10 +164,10 @@ Instruction* generatePowerInstructions(int num1, int num2){
     for(int i = 3; i < ( ((num1-1) * num2)+ (num2 - 1) + 3) ;i += num1){
     
          multiplica(num1, instructions, i);
-         instructions[num1+i].opcode = 3;//função que copia valor dentro da ram de uma variavel para outra
-         instructions[num1+i].info1 = 2;//copia o valor do endereço 3
-         instructions[num1+i].info2 = 1;//para o endereço 2
-         instructions[num1+i].info3 = 0;
+         //instructions[num1+i].opcode = 3;//função que copia valor dentro da ram de uma variavel para outra
+         //instructions[num1+i].info1 = 2;//copia o valor do endereço 3
+        // instructions[num1+i].info2 = 1;//para o endereço 2
+        // instructions[num1+i].info3 = 0;
          
 
     }
