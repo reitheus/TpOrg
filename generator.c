@@ -93,44 +93,37 @@ Instruction* generateMultiplicationInstructions(int num1, int num2){
 }
 
 Instruction* generateDivisionInstructions(int num1, int num2) {
-    Instruction* instructions = (Instruction*) malloc(num1 * sizeof(Instruction));
+    Instruction* instructions = (Instruction*) malloc((((num1-1)* num2)+(num2-1)+4 )* sizeof(Instruction));
     
-    int c=0;
-    int vaule;
+    int c=1;
     instructions[0].opcode = 0;   // Salvar num1
     instructions[0].info1 = num1;
     instructions[0].info2 = 0;
-    instructions[0].info3 = 0;
+    
 
     instructions[1].opcode = 0;   // Salvar num2
     instructions[1].info1 = num2;
     instructions[1].info2 = 1;
-    instructions[1].info3 = 0;
 
-    
-    int i=3;
-    while (i<num1+3) {
-        
+
+    instructions[2].opcode = 3; //copia num1 para a RAM[2]
+    instructions[2].info1 = 0;
+    instructions[2].info2 = 2;
+
+    int i;
+    for ( i = 3; i < num1 + 4; i += num2){
         instructions[i].opcode = 2;   
-        instructions[i].info1 = 0;
+        instructions[i].info1 = 2;
         instructions[i].info2 = 1;
-        instructions[i].info3 = 0;
-        i += 1;
-        if(instructions[i].info1>0){
-            c += 1;
-        }else{
-            i = num1+3;
-            break;
-        }
+        instructions[i].info3 = 2;
+        c=c+1;
     }
-
-    
     
     instructions[i].opcode = 0;   
-    instructions[i].info1 = c;
+    instructions[i].info1 = c-2;
     instructions[i].info2 = 2;
     instructions[i].info3 = 0;
-
+    
     instructions[i + 1].opcode = -1;   // Encerrar programa
     instructions[i + 1].info1 = -1;
     instructions[i + 1].info2 = -1;
