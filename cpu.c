@@ -64,14 +64,16 @@ void run(Machine* machine) {
                                 address1, RAMContent1, address2, RAMContent2, address3, result);
                 break;
               case 3: // sobrescrevendo da numero da memoria ram de um endereço para outro
-                address1 = instruction.info1;
+                address1 = instruction.info1;//endereço do local que vai ser copiado
+                address2 = instruction.info2;//endereço do local que vai ser colado
                 RAMContent1 = machine->RAM.items[address1];
-                instruction.info2 =  RAMContent1;
-
-                //machine->RAM.items[address1] = RAMContent1;
+                machine->RAM.items[address2] = RAMContent1;
                 
-                printf("  > Sobrescreve de RAM[%d] (%f) para variavel %i.\n", 
-                                address1, RAMContent1, instruction.info2);
+
+               
+                
+                printf("  > Sobrescreve de RAM[%d] (%f) para RAM[%i] %i.\n", 
+                                address1, RAMContent1, address2);
                 break;
         }
         PC++;
