@@ -37,7 +37,7 @@ Instruction* generateRandomInstructions(int ramSize) {
     return instructions;
 }
 
-Instruction* multiplica(int num1, Instruction *instruction){
+Instruction* multiplica(int num1, Instruction *instructions){
 
     for (int i = 3; i < num1+3; i++){
         instructions[i].opcode = 1;//opcode de soma
