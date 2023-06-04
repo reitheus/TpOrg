@@ -123,7 +123,7 @@ Instruction* generateDivisionInstructions(int num1, int num2) {
 }
 
 //num1 = base, num2 = expoente
-Instruction* generatePowerInstructions(int num1, int num2){
+Instruction* generatePowerInstructions(int num1, int num1){
     
     Instruction *instructions;//ponteiro para instruction
     int aux = num1;
