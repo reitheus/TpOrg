@@ -83,7 +83,7 @@ Instruction* generateMultiplicationInstructions(int num1, int num2){
 }
 
 Instruction* generateDivisionInstructions(int num1, int num2) {
-    Instruction* instructions = (Instruction*) malloc((num1 + 5) * sizeof(Instruction));
+    Instruction* instructions = (Instruction*) malloc(num1 * sizeof(Instruction));
     
     int c=0;
     int vaule;
@@ -105,16 +105,17 @@ Instruction* generateDivisionInstructions(int num1, int num2) {
         instructions[i].info1 = 0;
         instructions[i].info2 = 1;
         instructions[i].info3 = 0;
-
-        vaule;
-        printf("%d",vaule);
-        if(vaule > 0){
-            c=c+1;
-        }
-        
-
         i += 1;
+        if(instructions[i].info1>0){
+            c += 1;
+        }else{
+            i = num1+3;
+            break;
+        }
     }
+
+    
+    
     instructions[i].opcode = 0;   
     instructions[i].info1 = c;
     instructions[i].info2 = 2;
