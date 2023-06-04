@@ -63,6 +63,16 @@ void run(Machine* machine) {
                 printf("  > Subtraindo RAM[%d] (%f) com RAM[%d] (%f) e salvando na RAM[%d] (%f).\n", 
                                 address1, RAMContent1, address2, RAMContent2, address3, result);
                 break;
+              case 3: // sobrescrevendo da numero da memoria ram de um endereço para outro
+                address1 = instruction.info1;
+                address2 = instruction.info2;
+                RAMContent1 = machine->RAM.items[address2];
+
+                machine->RAM.items[address1] = RAMConten1;
+                
+                printf("  > Sobrescreve de RAM[%d] (%f) para RAM[%d] .\n", 
+                                address1, RAMContent1, address2);
+                break;
         }
         PC++;
     }
