@@ -37,6 +37,20 @@ Instruction* generateRandomInstructions(int ramSize) {
     return instructions;
 }
 
+Instruction* multiplica(int num1){
+
+    for (int i = 3; i < num1+3; i++){
+        instructions[i].opcode = 1;//opcode de soma
+        instructions[i].info1 = 2;
+        instructions[i].info2 = 1;
+        instructions[i].info3 = 2;
+        
+        
+    }
+
+
+}
+
 Instruction* generateMultiplicationInstructions(int num1, int num2){
 
     Instruction *instructions = (Instruction*) malloc((num1+5) * sizeof(Instruction));
@@ -56,17 +70,12 @@ Instruction* generateMultiplicationInstructions(int num1, int num2){
     instructions[2].info2 = 2;//adiciona 0 na posição 2 da memoria, que será utilizada para armazenar o resultado depois
     instructions[2].info3 = 0;
 
-    for (int i = 3; i < num1+3; i++){
-        instructions[i].opcode = 1;//opcode de soma
-        instructions[i].info1 = 2;
-        instructions[i].info2 = 1;
-        instructions[i].info3 = 2;
-        
-        
-    }
-    
-   
-    
+    multiplica(num1);
+  
+    instructions[num1+4].opcode = -1;
+    instructions[num1+4].info1 = -1;
+    instructions[num1+4].info2 = -1;
+    instructions[num1+4].info3 = -1;
     
 
 
@@ -122,28 +131,39 @@ Instruction* generateDivisionInstructions(int num1, int num2) {
 //num1 = base, num2 = expoente
 Instruction* generatePowerInstructions(int num1, int num2){
     
-    Instruction *instructions;//ponteiro para instruction
-    int aux = num1;
+    Instruction *instructions = (Instruction*) malloc((num1+5) * sizeof(Instruction));
+
+    instructions[0].opcode = 0;
+    instructions[0].info1 = num1;//mandar o valor de num1 para ir para memoria
+    instructions[0].info2 = 0;//aponta para qual endereço da memoria vai ficar o valor
+    instructions[0].info3 = 0;
+
+    instructions[1].opcode = 0;
+    instructions[1].info1 = num2;//manda o valor de num2 para memoria
+    instructions[1].info2 = 1;//aponta para endereço da memoria o valor de num2 vai ficar
+    instructions[1].info3 = 0;
+
+    instructions[2].opcode = 0;
+    instructions[2].info1 = 0;//adiciona 0 na memoria
+    instructions[2].info2 = 2;//adiciona 0 na posição 2 da memoria, que será utilizada para armazenar o resultado depois
+    instructions[2].info3 = 0;
     
     //loop para fazer a potencia, multiplicação sucessiva
     for(int i = 0; i < num2 ;i++){
     
-        instructions = generateMultiplicationInstructions(num1, num1);
-     
-        instructions[aux + 3].opcode = 3;
-        instructions[aux + 3].info1 = 2;
-        num1 = instructions[aux + 3].info2;
-        printf("num1 = %i", num1);
-        instructions[aux + 3].info3 = 0;
-     
-        instructions[num1+4].opcode = -1;
-        instructions[num1+4].info1 = -1;
-        instructions[num1+4].info2 = -1;
-        instructions[num1+4].info3 = -1;
-        
+         multiplica(num1);
+         instructions[num1+3].opcode = 3;//função que copia valor dentro da ram de uma variavel para outra
+         instructions[num1+3].info1 = 2;//copia o valor do endereço 2
+         instructions[num1+3].info2 = 0;//para o endereço 1
+         instructions[num1+3].info3 = 0;
+
     }
 
-    
+    instructions[num1+4].opcode = -1;
+    instructions[num1+4].info1 = -1;
+    instructions[num1+4].info2 = -1;
+    instructions[num1+4].info3 = -1;
+  
     return instructions;
 }
 
