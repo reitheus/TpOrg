@@ -39,7 +39,7 @@ Instruction* generateRandomInstructions(int ramSize) {
 
 Instruction* generateMultiplicationInstructions(int num1, int num2){
 
-    Instruction *instructions = (Instruction*) malloc((num1+4) * sizeof(Instruction));
+    Instruction *instructions = (Instruction*) malloc((num1+5) * sizeof(Instruction));
 
     instructions[0].opcode = 0;
     instructions[0].info1 = num1;//mandar o valor de num1 para ir para memoria
@@ -67,10 +67,10 @@ Instruction* generateMultiplicationInstructions(int num1, int num2){
 
     
     
-    instructions[num1+3].opcode = -1;
-    instructions[num1+3].info1 = -1;
-    instructions[num1+3].info2 = -1;
-    instructions[num1+3].info3 = -1;
+    instructions[num1+4].opcode = -1;
+    instructions[num1+4].info1 = -1;
+    instructions[num1+4].info2 = -1;
+    instructions[num1+4].info3 = -1;
 
     return instructions;
 }
@@ -125,16 +125,16 @@ Instruction* generateDivisionInstructions(int num1, int num2) {
 Instruction* generatePowerInstructions(int num1, int num2){
     
     Instruction *instructions;//ponteiro para instruction
-    int aux = num1;
+  
     
     //loop para fazer a potencia, multiplicação sucessiva
     for(int i = 0; i < num2 ;i++){
     
         instructions = generateMultiplicationInstructions(num1, num2);
-        instructions[0].opcode = 3;
-        instructions[0].info1 = 0;
-        instructions[0].info2 = 2;
-        instructions[0].info3 = 0;
+        instructions[num1 + 3].opcode = 3;
+        instructions[num1 + 3].info1 = 0;
+        instructions[num1 + 3].info2 = 2;
+        instructions[num1 + 3].info3 = 0;
         
     }
 
