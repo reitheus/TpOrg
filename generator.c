@@ -57,7 +57,7 @@ Instruction* generateMultiplicationInstructions(int num1, int num2){
     instructions[2].info3 = 0;
 
     for (int i = 3; i < num1+3; i++){
-        instructions[i].opcode = 1;
+        instructions[i].opcode = 1;//opcode de soma
         instructions[i].info1 = 2;
         instructions[i].info2 = 1;
         instructions[i].info3 = 2;
@@ -125,12 +125,13 @@ Instruction* generateDivisionInstructions(int num1, int num2) {
 Instruction* generatePowerInstructions(int num1, int num2){
     
     Instruction *instructions;//ponteiro para instruction
-
+    int aux = num1;
+    
     //loop para fazer a potencia, multiplicação sucessiva
     for(int i = 0; i < num2 ;i++){
     
         instructions = generateMultiplicationInstructions(num1, num2);
-        num1 = instructions[2].info1;
+        num1 = instructions[aux + 2].info1;
         
     }
 
