@@ -125,16 +125,16 @@ Instruction* generateDivisionInstructions(int num1, int num2) {
 Instruction* generatePowerInstructions(int num1, int num2){
     
     Instruction *instructions;//ponteiro para instruction
-  
+    int aux = num1;
     
     //loop para fazer a potencia, multiplicação sucessiva
     for(int i = 0; i < num2 ;i++){
     
         instructions = generateMultiplicationInstructions(num1, num2);
-        instructions[num1 + 3].opcode = 3;
-        instructions[num1 + 3].info1 = 2;
-        num1 = instructions[num1 + 3].info2;
-        instructions[num1 + 3].info3 = 0;
+        instructions[aux + 3].opcode = 3;
+        instructions[aux + 3].info1 = 2;
+        num1 = instructions[aux + 3].info2;
+        instructions[aux + 3].info3 = 0;
         
     }
 
