@@ -48,7 +48,7 @@ Instruction* multiplica(int num1, Instruction *instructions){
         
     }
 
-
+  return 0;
 }
 
 Instruction* generateMultiplicationInstructions(int num1, int num2){
