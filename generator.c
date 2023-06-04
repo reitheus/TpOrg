@@ -61,9 +61,12 @@ Instruction* generateMultiplicationInstructions(int num1, int num2){
         instructions[i].info1 = 2;
         instructions[i].info2 = 1;
         instructions[i].info3 = 2;
+        
+        
     }
 
-
+    
+    
     instructions[num1+3].opcode = -1;
     instructions[num1+3].info1 = -1;
     instructions[num1+3].info2 = -1;
@@ -127,7 +130,7 @@ Instruction* generatePowerInstructions(int num1, int num2){
     for(int i = 0; i < num2 ;i++){
     
         instructions = generateMultiplicationInstructions(num1, num2);
-        //num1 = instructions[].info3;
+        num1 = instructions[0].info1;
         
     }
 
