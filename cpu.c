@@ -70,8 +70,8 @@ void run(Machine* machine) {
 
                 //machine->RAM.items[address1] = RAMContent1;
                 
-                printf("  > Sobrescreve de RAM[%d] (%f) para variavel .\n", 
-                                address1, RAMContent1);
+                printf("  > Sobrescreve de RAM[%d] (%f) para variavel %i.\n", 
+                                address1, RAMContent1, instruction.info2);
                 break;
         }
         PC++;
