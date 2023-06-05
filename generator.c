@@ -172,74 +172,74 @@ Instruction* generatePowerInstructions(int num1, int num2){
        instructions[num1+i + 1].info2 = 2;
        instructions[num1+i + 1].info3 = 0;
 
+      }
+
+      instructions[tamInst - 2].opcode = 3;//função que copia valor dentro da ram de uma variavel para outra
+      instructions[tamInst - 2].info1 = 1;//copia o valor do endereço 2
+      instructions[tamInst - 2].info2 = 2;//para o endereço 1
+      instructions[tamInst - 2].info3 = 0;
+
+      instructions[tamInst - 1].opcode = -1;
+      instructions[tamInst - 1].info1 = -1;
+      instructions[tamInst - 1].info2 = -1;
+      instructions[tamInst - 1].info3 = -1;
+
+      return instructions;
     }
-    
-    instructions[tamInst - 2].opcode = 3;//função que copia valor dentro da ram de uma variavel para outra
-    instructions[tamInst - 2].info1 = 1;//copia o valor do endereço 2
-    instructions[tamInst - 2].info2 = 2;//para o endereço 1
-    instructions[tamInst - 2].info3 = 0;
-    
-    instructions[tamInst - 1].opcode = -1;
-    instructions[tamInst - 1].info1 = -1;
-    instructions[tamInst - 1].info2 = -1;
-    instructions[tamInst - 1].info3 = -1;
-  
-    return instructions;
-}
 
 Instruction* generateFactorInstructions(int num1, int num2){
- int aux = 0;
- num2 = num1;
- int j = num1 - 1;
-  
-  //calcula a quandtidade de somas necessaria para a fatoração
-  while(j > 1){
-    aux = aux + j;
-    j--;
-  }
-  //quantidade de somas + instruções no loop + instruções externas
-  int tamInst =  aux + ((num1 - 1) * 2) + 3;
-  Instruction *instructions = (Instruction*) malloc(  tamInst * sizeof(Instruction));
+   int aux = 0;
+   num2 = num1;
+   int j = num1 - 1;
 
-  instructions[0].opcode = 0;
-  instructions[0].info1 = num1 - 1;//mandar o valor de num1 para ir para memoria
-  instructions[0].info2 = 0;//aponta para qual endereço da memoria vai ficar o valor
-  instructions[0].info3 = 0;
-  
-  instructions[1].opcode = 0;
-  instructions[1].info1 = num1;//manda o valor de num2 para memoria
-  instructions[1].info2 = 1;//aponta para endereço da memoria o valor de num2 vai ficar
-  instructions[1].info3 = 0;
-  
-  instructions[2].opcode = 0;
-  instructions[2].info1 = 0;//adiciona 0 na memoria
-  instructions[2].info2 = 2;//adiciona 0 na posição 2 da memoria, que será utilizada para armazenar o resultado depois
-  instructions[2].info3 = 0;
-  
-  for(int i  = 3; i < tamInst - 1; i += num1 + 1){
-  
-    multiplica(num1, instructions, i);//percorre num1 instructions
-    
-    instructions[num1+i].opcode = 3;//função que copia valor dentro da ram de uma variavel para outra
-    instructions[num1+i].info1 = 2;//copia o valor do endereço 2
-    instructions[num1+i].info2 = 1;//para o endereço 1
-    instructions[num1+i].info3 = 0;
-    
+    //calcula a quandtidade de somas necessaria para a fatoração
+    while(j > 1){
+      aux = aux + j;
+      j--;
+      }
+    //quantidade de somas + instruções no loop + instruções externas
+    int tamInst =  aux + ((num1 - 1) * 2) + 3;
+    Instruction *instructions = (Instruction*) malloc(  tamInst * sizeof(Instruction));
+
+    instructions[0].opcode = 0;
+    instructions[0].info1 = num1 - 1;//mandar o valor de num1 para ir para memoria
+    instructions[0].info2 = 0;//aponta para qual endereço da memoria vai ficar o valor
+    instructions[0].info3 = 0;
+
+    instructions[1].opcode = 0;
+    instructions[1].info1 = num1;//manda o valor de num2 para memoria
+    instructions[1].info2 = 1;//aponta para endereço da memoria o valor de num2 vai ficar
+    instructions[1].info3 = 0;
+
     instructions[2].opcode = 0;
     instructions[2].info1 = 0;//adiciona 0 na memoria
     instructions[2].info2 = 2;//adiciona 0 na posição 2 da memoria, que será utilizada para armazenar o resultado depois
     instructions[2].info3 = 0;
-    
-    num1-=2;
-    return instructions;
-  }
-  
-  
+
+    for(int i  = 3; i < tamInst - 1; i += num1 + 1){
+
+        multiplica(num1, instructions, i);//percorre num1 instructions
+
+        instructions[num1+i].opcode = 3;//função que copia valor dentro da ram de uma variavel para outra
+        instructions[num1+i].info1 = 2;//copia o valor do endereço 2
+        instructions[num1+i].info2 = 1;//para o endereço 1
+        instructions[num1+i].info3 = 0;
+
+        instructions[2].opcode = 0;
+        instructions[2].info1 = 0;//adiciona 0 na memoria
+        instructions[2].info2 = 2;//adiciona 0 na posição 2 da memoria, que será utilizada para armazenar o resultado depois
+        instructions[2].info3 = 0;
+
+        num1-=2;
+
+        }
+
+
   instructions[tamInst - 1].opcode = -1;
   instructions[tamInst - 1].info1 = -1;
   instructions[tamInst - 1].info2 = -1;
   instructions[tamInst - 1].info3 = -1;
-
+  return instructions;
 }
 
 
