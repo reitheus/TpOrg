@@ -239,8 +239,9 @@ Instruction* generateFactorInstructions(int num1, int num2){
         return instructions;
     }  
   
-    for(int i  = 3; i < (num2 - 1) * 2 + aux; i += num1 + 2){
-
+    int i  = 3;
+    while( i < (num2 - 1) * 2 + aux ){
+       
         multiplica(num1, instructions, i);//percorre num1 instructions
 
         instructions[num1+i].opcode = 3;//função que copia valor dentro da ram de uma variavel para outra
@@ -252,7 +253,7 @@ Instruction* generateFactorInstructions(int num1, int num2){
         instructions[num1 + i + 1].info1 = 0;//adiciona 0 na memoria
         instructions[num1 + i + 1].info2 = 2;//adiciona 0 na posição 2 da memoria, que será utilizada para armazenar o resultado depois
         instructions[num1 + i + 1].info3 = 0;
-
+         i += num1 + 2;
         num1-=2;
 
         }
