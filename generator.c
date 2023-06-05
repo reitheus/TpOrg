@@ -194,7 +194,7 @@ Instruction* generateFactorInstructions(int num1, int num2){
   
   //calcula a quandtidade de somas necessaria para a fatoração
   while(j > 1){
-    aux = aux + j
+    aux = aux + j;
     j--;
   }
   //quantidade de somas + instruções no loop + instruções externas
@@ -231,7 +231,7 @@ Instruction* generateFactorInstructions(int num1, int num2){
     instructions[2].info3 = 0;
     
     num1-=2;
-  
+    return instructions;
   }
   
   
