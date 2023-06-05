@@ -190,16 +190,9 @@ Instruction* generatePowerInstructions(int num1, int num2){
 Instruction* generateFactorInstructions(int num1, int num2){
    int aux = 0;
    num2 = num1;
-   int j ;
+   int j = num1 - 1;
   
-   if(num1 == 1){
-      j = num1;
-   
-   }else{
-      j = num1 - 1;
-   
-   
-   }
+  
   
   
     //calcula a quandtidade de somas necessaria para a fatoração
@@ -213,6 +206,9 @@ Instruction* generateFactorInstructions(int num1, int num2){
   
     //quantidade de somas + instruções no loop + instruções externas
     int tamInst =  aux + ((num1 - 1) * 2) + 4;
+    if(num1 == 1 || num1 == 2){
+      tamInst = 5;
+    }
     Instruction *instructions = (Instruction*) malloc(  tamInst * sizeof(Instruction));
 
     instructions[0].opcode = 0;
@@ -229,7 +225,20 @@ Instruction* generateFactorInstructions(int num1, int num2){
     instructions[2].info1 = 0;//adiciona 0 na memoria
     instructions[2].info2 = 2;//adiciona 0 na posição 2 da memoria, que será utilizada para armazenar o resultado depois
     instructions[2].info3 = 0;
-
+    if(num1 == 1 || num1 == 2){
+      
+        instructions[3].opcode = 3;//função que copia valor dentro da ram de uma variavel para outra
+        instructions[3].info1 = 1;//copia o valor do endereço 1
+        instructions[3].info2 = 2;//para o endereço 2
+        instructions[3].info3 = 0;
+      
+        instructions[tamInst - 1].opcode = -1;
+        instructions[tamInst - 1].info1 = -1;
+        instructions[tamInst - 1].info2 = -1;
+        instructions[tamInst - 1].info3 = -1;
+        return instructions;
+    }  
+  
     for(int i  = 3; i < tamInst - 1; i += num1 + 2){
 
         multiplica(num1, instructions, i);//percorre num1 instructions
