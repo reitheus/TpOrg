@@ -46,6 +46,11 @@ int main(int argc, char**argv) {
         num1 = atoi(argv[3]);
         num2 = atoi(argv[4]);
         instructions = generateFactorInstructions(num1,num2);
+    }else if(strcmp(argv[1], "fib")==0){
+        ramSize = atoi(argv[2]);
+        num1 = atoi(argv[3]);
+        num2 = atoi(argv[4]);
+        instructions = generateFibonacciInstructions(num1,num2);
     }else{
         printf("Opcao invalida.\n");
         return 0;
