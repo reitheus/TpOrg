@@ -269,7 +269,7 @@ Instruction* generateFactorInstructions(int num1, int num2){
 //num1 = base, num2 = expoente
 Instruction* generateFibonacciInstructions(int num1, int num2){
   //quantidade de soma + instruções no loop + instruções basicas
-  int tamInst =  (num1 * 4) + 6;
+  int tamInst =  (num1 * 4) + 5;
   
   Instruction *instructions = (Instruction*) malloc(  tamInst * sizeof(Instruction));
   
@@ -290,7 +290,7 @@ Instruction* generateFibonacciInstructions(int num1, int num2){
   
   instructions[3].opcode = 0;
   instructions[3].info1 = 0;//adiciona 0 na memoria
-  instructions[3].info2 = 3;//adiciona 0 na posição 2 da memoria, que será utilizada para armazenar o resultado depois
+  instructions[3].info2 = 3;//adiciona 0 na posição 3 da memoria, que será utilizada para armazenar o resultado depois
   instructions[3].info3 = 0;
   
   for(int i = 4; i < (num1 * 4); i+=4){
@@ -319,10 +319,7 @@ Instruction* generateFibonacciInstructions(int num1, int num2){
   
   }
   
-  instructions[tamInst - 2].opcode = 1;
-  instructions[tamInst - 2].info1 = 2;
-  instructions[tamInst - 2].info2 = 3;
-  instructions[tamInst - 2].info3 = 3;
+  
   
   instructions[tamInst - 1].opcode = -1;
   instructions[tamInst - 1].info1 = -1;
