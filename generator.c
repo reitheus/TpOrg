@@ -289,7 +289,7 @@ Instruction* generateFibonacciInstructions(int num1, int num2){
   instructions[2].info3 = 0;
   
   instructions[3].opcode = 0;
-  instructions[3].info1 = 0;//adiciona 0 na memoria
+  instructions[3].info1 = 1;//adiciona 1 na memoria
   instructions[3].info2 = 3;//adiciona 0 na posição 3 da memoria, que será utilizada para armazenar o resultado depois
   instructions[3].info3 = 0;
   
