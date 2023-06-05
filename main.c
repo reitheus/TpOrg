@@ -9,7 +9,7 @@ int main(int argc, char**argv) {
 
     srand(time(NULL));   // Inicializacao da semente para os numeros aleatorios.
 
-    if (argc != 5) {
+    if (argc > 5 || argc < 3) {
         printf("Numero de argumentos invalidos! Sao 3.\n");
         printf("Linha de execucao: ./exe TIPO_INSTRUCAO [TAMANHO_RAM|ARQUIVO_DE_INSTRUCOES]\n");
         printf("\tExemplo 1 de execucao: ./exe random 10\n");
