@@ -9,6 +9,6 @@ Instruction* readInstructions(char*, int*);
 Instruction* generateDivisionInstructions(int num1, int num2);
 Instruction* generatePowerInstructions(int num1, int num2);
 Instruction* generateFactorInstructions(int num1, int num2);
-Instruction* generateFibonacciInstructions(int num1, int num2)
+Instruction* generateFibonacciInstructions(int num1, int num2);
 
 #endif // !GENERATOR_H
