@@ -205,7 +205,7 @@ Instruction* generateFactorInstructions(int num1, int num2){
   
   
     //quantidade de somas + instruções no loop + instruções externas
-    int tamInst =  aux + ((num1 - 1) * 2) + 4;
+    int tamInst =  9 + ((num1 - 1) * 2) + 4;
     if(num1 == 1 || num1 == 2){
       tamInst = 5;
     }
