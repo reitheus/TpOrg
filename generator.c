@@ -198,7 +198,7 @@ Instruction* generateFactorInstructions(int num1, int num2){
       j--;
       }
     //quantidade de somas + instruções no loop + instruções externas
-    int tamInst =  aux + ((num1 - 1) * 2) + 5;
+    int tamInst =  aux + ((num1 - 1) * 2) + 4;
     Instruction *instructions = (Instruction*) malloc(  tamInst * sizeof(Instruction));
 
     instructions[0].opcode = 0;
@@ -225,10 +225,10 @@ Instruction* generateFactorInstructions(int num1, int num2){
         instructions[num1+i].info2 = 1;//para o endereço 1
         instructions[num1+i].info3 = 0;
 
-        instructions[2].opcode = 0;
-        instructions[2].info1 = 0;//adiciona 0 na memoria
-        instructions[2].info2 = 2;//adiciona 0 na posição 2 da memoria, que será utilizada para armazenar o resultado depois
-        instructions[2].info3 = 0;
+        instructions[num1 + i + 1].opcode = 0;
+        instructions[num1 + i + 1].info1 = 0;//adiciona 0 na memoria
+        instructions[num1 + i + 1].info2 = 2;//adiciona 0 na posição 2 da memoria, que será utilizada para armazenar o resultado depois
+        instructions[num1 + i + 1].info3 = 0;
 
         num1-=2;
 
