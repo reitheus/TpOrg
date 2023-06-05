@@ -266,6 +266,56 @@ Instruction* generateFactorInstructions(int num1, int num2){
   return instructions;
 }
 
+//num1 = base, num2 = expoente
+Instruction* generateFibonacciInstructions(int num1, int num2){
+  //quantidade de soma + instruções no loop + instruções basicas
+  int tamInst =  (num1 * 3)+ 4;
+  
+  Instruction *instructions = (Instruction*) malloc(  tamInst * sizeof(Instruction));
+  
+  instructions[0].opcode = 0;
+  instructions[0].info1 = 0;//mandar o valor de 0 para ir para memoria
+  instructions[0].info2 = 0;//aponta para qual endereço da memoria vai ficar o valor
+  instructions[0].info3 = 0;
+
+  instructions[1].opcode = 0;
+  instructions[1].info1 = 1;//manda o valor de 1 para memoria
+  instructions[1].info2 = 1;//aponta para endereço da memoria o valor de num2 vai ficar
+  instructions[1].info3 = 0;
+
+  instructions[2].opcode = 0;
+  instructions[2].info1 = 0;//adiciona 0 na memoria
+  instructions[2].info2 = 2;//adiciona 0 na posição 2 da memoria, que será utilizada para armazenar o resultado depois
+  instructions[2].info3 = 0;
+  
+  for(int i = 3; i < (num1 * 3); i+=3){
+      instructions[i].opcode = 1;
+      instructions[i].info1 = 0;
+      instructions[i].info2 = 1;
+      instructions[i].info3 = 2;
+    
+      instructions[i+1].opcode = 3;//função que copia valor dentro da ram de uma variavel para outra
+      instructions[i+1].info1 = 1;//copia o valor do endereço 1
+      instructions[i+1].info2 = 0;//para o endereço 0
+      instructions[i+1].info3 = 0;
+      
+    
+      instructions[i+2].opcode = 3;//função que copia valor dentro da ram de uma variavel para outra
+      instructions[i+2].info1 = 2;//copia o valor do endereço 2
+      instructions[i+2].info2 = 1;//para o endereço 1
+      instructions[i+2].info3 = 0;
+  
+  }
+  
+  instructions[tamInst - 1].opcode = -1;
+  instructions[tamInst - 1].info1 = -1;
+  instructions[tamInst - 1].info2 = -1;
+  instructions[tamInst - 1].info3 = -1;
+  return instructions;
+  
+
+}
+
 
 Instruction* readInstructions(char* fileName, int* ramSize) {
     printf("FILE -> %s\n", fileName);
