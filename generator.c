@@ -239,7 +239,7 @@ Instruction* generateFactorInstructions(int num1, int num2){
         return instructions;
     }  
   
-    for(int i  = 3; i < (num1 - 1) * (num1 + 2); i += num1 + 2){
+    for(int i  = 3; i < (num2 - 1) * (aux + 2); i += num1 + 2){
 
         multiplica(num1, instructions, i);//percorre num1 instructions
 
