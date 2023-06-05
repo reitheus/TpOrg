@@ -242,17 +242,17 @@ Instruction* generateFactorInstructions(int num1, int num2){
     int i  = 3;
     while( i < (num2 - 1) * 2 + aux ){
        
-        multiplica(num1, instructions, i);//percorre num1 instructions
+        multiplica(num1-1, instructions, i);//percorre num1 instructions
 
-        instructions[num1+i].opcode = 3;//função que copia valor dentro da ram de uma variavel para outra
-        instructions[num1+i].info1 = 2;//copia o valor do endereço 2
-        instructions[num1+i].info2 = 1;//para o endereço 1
-        instructions[num1+i].info3 = 0;
+        instructions[num1-1+i].opcode = 3;//função que copia valor dentro da ram de uma variavel para outra
+        instructions[num1-1+i].info1 = 2;//copia o valor do endereço 2
+        instructions[num1-1+i].info2 = 1;//para o endereço 1
+        instructions[num1-1+i].info3 = 0;
 
-        instructions[num1 + i + 1].opcode = 0;
-        instructions[num1 + i + 1].info1 = 0;//adiciona 0 na memoria
-        instructions[num1 + i + 1].info2 = 2;//adiciona 0 na posição 2 da memoria, que será utilizada para armazenar o resultado depois
-        instructions[num1 + i + 1].info3 = 0;
+        instructions[num1-1 + i + 1].opcode = 0;
+        instructions[num1-1 + i + 1].info1 = 0;//adiciona 0 na memoria
+        instructions[num1-1 + i + 1].info2 = 2;//adiciona 0 na posição 2 da memoria, que será utilizada para armazenar o resultado depois
+        instructions[num1-1 + i + 1].info3 = 0;
          i += num1 + 2;
         num1-=2;
 
