@@ -216,7 +216,7 @@ Instruction* generateFactorInstructions(int num1, int num2){
     instructions[2].info2 = 2;//adiciona 0 na posição 2 da memoria, que será utilizada para armazenar o resultado depois
     instructions[2].info3 = 0;
 
-    for(int i  = 3; i < tamInst - 1; i += num1 + 1){
+    for(int i  = 3; i < tamInst - 1; i += num1 + 2){
 
         multiplica(num1, instructions, i);//percorre num1 instructions
 
