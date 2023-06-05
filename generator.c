@@ -190,13 +190,27 @@ Instruction* generatePowerInstructions(int num1, int num2){
 Instruction* generateFactorInstructions(int num1, int num2){
    int aux = 0;
    num2 = num1;
-   int j = num1 - 1;
-
+   int j ;
+  
+   if(num1 == 1){
+      j = num1;
+   
+   }else{
+      j = num1 - 1;
+   
+   
+   }
+  
+  
     //calcula a quandtidade de somas necessaria para a fatoração
+    
     while(j > 1){
       aux = aux + j;
       j--;
       }
+    
+  
+  
     //quantidade de somas + instruções no loop + instruções externas
     int tamInst =  aux + ((num1 - 1) * 2) + 4;
     Instruction *instructions = (Instruction*) malloc(  tamInst * sizeof(Instruction));
