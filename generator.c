@@ -199,7 +199,7 @@ Instruction* generateFactorInstructions(int num1, int num2){
   }
   //quantidade de somas + instruções no loop + instruções externas
   int tamInst =  aux + ((num1 - 1) * 2) + 3;
-  int aux;Instruction *instructions = (Instruction*) malloc(  tamInst * sizeof(Instruction));
+  Instruction *instructions = (Instruction*) malloc(  tamInst * sizeof(Instruction));
 
   instructions[0].opcode = 0;
   instructions[0].info1 = num1 - 1;//mandar o valor de num1 para ir para memoria
