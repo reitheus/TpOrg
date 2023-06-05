@@ -269,7 +269,7 @@ Instruction* generateFactorInstructions(int num1, int num2){
 //num1 = base, num2 = expoente
 Instruction* generateFibonacciInstructions(int num1, int num2){
   //quantidade de soma + instruções no loop + instruções basicas
-  int tamInst =  (num1 * 4) + 4;
+  int tamInst =  (num1 * 4) + 6;
   
   Instruction *instructions = (Instruction*) malloc(  tamInst * sizeof(Instruction));
   
@@ -288,7 +288,12 @@ Instruction* generateFibonacciInstructions(int num1, int num2){
   instructions[2].info2 = 2;//adiciona 0 na posição 2 da memoria, que será utilizada para armazenar o resultado depois
   instructions[2].info3 = 0;
   
-  for(int i = 3; i < (num1 * 4); i+=4){
+  instructions[3].opcode = 0;
+  instructions[3].info1 = 0;//adiciona 0 na memoria
+  instructions[3].info2 = 3;//adiciona 0 na posição 2 da memoria, que será utilizada para armazenar o resultado depois
+  instructions[3].info3 = 0;
+  
+  for(int i = 4; i < (num1 * 4); i+=4){
       instructions[i].opcode = 1;
       instructions[i].info1 = 0;
       instructions[i].info2 = 1;
@@ -296,7 +301,7 @@ Instruction* generateFibonacciInstructions(int num1, int num2){
     
       instructions[i+1].opcode = 1;
       instructions[i+1].info1 = 2;
-      instructions[i+1].info2 = 1;
+      instructions[i+1].info2 = 3;
       instructions[i+1].info3 = 3;
     
       instructions[i+2].opcode = 3;//função que copia valor dentro da ram de uma variavel para outra
@@ -313,6 +318,11 @@ Instruction* generateFibonacciInstructions(int num1, int num2){
      
   
   }
+  
+  instructions[tamInst - 2].opcode = 1;
+  instructions[tamInst - 2].info1 = 2;
+  instructions[tamInst - 2].info2 = 3;
+  instructions[tamInst - 2].info3 = 3;
   
   instructions[tamInst - 1].opcode = -1;
   instructions[tamInst - 1].info1 = -1;
