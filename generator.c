@@ -205,7 +205,7 @@ Instruction* generateFactorInstructions(int num1, int num2){
   
   
     //quantidade de somas + instruções no loop + instruções externas
-    int tamInst =  9 + ((num1 - 1) * 2) + 4;
+    int tamInst =  9 + ((num1 - 1) * 1) + 4;
     if(num1 == 1 || num1 == 2){
       tamInst = 5;
     }
@@ -239,7 +239,7 @@ Instruction* generateFactorInstructions(int num1, int num2){
         return instructions;
     }  
   
-    for(int i  = 3; i < tamInst - 1; i += num1 + 2){
+    for(int i  = 3; i < tamInst - 1; i += num1 + 1){
 
         multiplica(num1, instructions, i);//percorre num1 instructions
 
@@ -248,10 +248,10 @@ Instruction* generateFactorInstructions(int num1, int num2){
         instructions[num1+i].info2 = 1;//para o endereço 1
         instructions[num1+i].info3 = 0;
 
-        instructions[num1 + i + 1].opcode = 0;
-        instructions[num1 + i + 1].info1 = 0;//adiciona 0 na memoria
-        instructions[num1 + i + 1].info2 = 2;//adiciona 0 na posição 2 da memoria, que será utilizada para armazenar o resultado depois
-        instructions[num1 + i + 1].info3 = 0;
+       // instructions[num1 + i + 1].opcode = 0;
+       // instructions[num1 + i + 1].info1 = 0;//adiciona 0 na memoria
+        //instructions[num1 + i + 1].info2 = 2;//adiciona 0 na posição 2 da memoria, que será utilizada para armazenar o resultado depois
+       // instructions[num1 + i + 1].info3 = 0;
 
         num1-=2;
 
