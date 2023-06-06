@@ -187,13 +187,10 @@ Instruction* generatePowerInstructions(int num1, int num2){
       return instructions;
     }
 
-Instruction* generateFactorInstructions(int num1, int num2){
+Instruction* generateFactorInstructions(int num1){
    int aux = 0;
-   num2 = num1;
+   int num2 = num1;
    int j = num1 - 1;
-  
-  
-  
   
     //calcula a quandtidade de somas necessaria para a fatoração
     
@@ -201,9 +198,7 @@ Instruction* generateFactorInstructions(int num1, int num2){
       aux = aux + j;
       j--;
       }
-    
-  
-  
+
     //quantidade de somas + instruções no loop + instruções externas
     int tamInst =  aux + ((num1 - 1) * 2) + 4;
     if(num1 == 1 || num1 == 2){
@@ -266,8 +261,8 @@ Instruction* generateFactorInstructions(int num1, int num2){
   return instructions;
 }
 
-//num1 = base, num2 = expoente
-Instruction* generateFibonacciInstructions(int num1, int num2){
+
+Instruction* generateFibonacciInstructions(int num1){
   //quantidade de soma + instruções no loop + instruções basicas
   int tamInst =  (num1 * 4) + 5;
   
